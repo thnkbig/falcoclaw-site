@@ -1,0 +1,154 @@
+---
+import "../styles/global.css";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Runtime security for AI agents and Linux workloads. FalcoClaw detects threats and responds automatically - in milliseconds." />
+    <title>FalcoClaw - Runtime Security for AI Agents</title>
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><img src="/logo.jpg" alt="FalcoClaw" /><span>FalcoClaw</span></div>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/thnkbig/falcoclaw" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/thnkbig/falcoclaw/releases" target="_blank" rel="noopener" class="btn btn-primary">Get Started</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <img src="/logo.jpg" alt="FalcoClaw mascot" />
+      <h1>Runtime Security for<br/><span>AI Agents &amp; Linux</span></h1>
+      <p>FalcoClaw extends Falco syscall-level threat detection with automated response. Kill malicious processes, block IPs, quarantine files - in milliseconds.</p>
+      <div class="hero-badges">
+        <span class="badge"><img src="https://img.shields.io/badge/Go-1.22+-00ADD8?style=flat&amp;logo=go" alt="Go" /></span>
+        <span class="badge"><img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=flat" alt="Apache 2.0" /></span>
+        <span class="badge"><img src="https://img.shields.io/badge/Docker-ghcr.io%2Fthnkbig%2Ffalcoclaw:latest-2496ed?style=flat&amp;logo=docker" alt="Docker" /></span>
+        <span class="badge"><img src="https://github.com/thnkbig/falcoclaw/actions/workflows/ci.yml/badge.svg" alt="CI" /></span>
+      </div>
+      <div class="install-cmd"><span>$</span> docker run -d --privileged -v /var/log:/var/log ghcr.io/thnkbig/falcoclaw:latest</div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section-label">What it does</div>
+      <h2 class="section-title">Security that responds, not just alerts</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Process Termination</h3>
+          <p>Instantly kill processes that exhibit malicious behavior - shell injection, privilege escalation, or unauthorized exec calls.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚫</div>
+          <h3>IP Blocking</h3>
+          <p>Drop inbound connections from known attackers at the iptables level. Block outbound C2 callbacks before data leaves.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📦</div>
+          <h3>File Quarantine</h3>
+          <p>Move suspicious files to quarantine with immutable flags. Stop malware from persisting even if it runs again.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>Agent Dispatch</h3>
+          <p>Webhook alerts to OpenClaw, Hermes, or any agent framework. Trigger AI-powered investigation pipelines on detection.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Millisecond Response</h3>
+          <p>Built for speed. Response actions execute in the same event loop as detection - no queue lag, no polling.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📋</div>
+          <h3>Rule-Based Engine</h3>
+          <p>YAML-based rule definitions. Write custom response policies for your specific workload and threat model.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="how-inner">
+        <h2>How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Falco detects a syscall threat</h3>
+              <p>Falco monitors system calls in real time using the kernel audit subsystem. When a rule matches - e.g. a shell spawned from a Python process - it emits a structured event.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>FalcoClaw receives the event</h3>
+              <p>FalcoClaw subscribes to Falco output stream. It enriches events with context - process tree, file path, user, and matched rule metadata.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>Response actions execute in milliseconds</h3>
+              <p>Based on your rules, FalcoClaw fires the configured response: kill the process, block the IP, quarantine the file, or dispatch to an agent webhook.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h3>Agents investigate and remediate</h3>
+              <p>Webhook payloads land in your agent pipeline. Agents take further action - revoke credentials, isolate workloads, or alert your team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="install" id="install">
+      <h2>Get started</h2>
+      <div class="install-grid">
+        <div class="install-card">
+          <h3>Docker</h3>
+          <p>Run with full system access in seconds.</p>
+          <div class="code">docker run -d --privileged   -v /var/log:/var/log   -v /etc/falcoclaw:/etc/falcoclaw   ghcr.io/thnkbig/falcoclaw:latest</div>
+        </div>
+        <div class="install-card">
+          <h3>Binary</h3>
+          <p>Download the Linux amd64 binary from GitHub Releases.</p>
+          <div class="code">curl -L https://github.com/thnkbig/falcoclaw/releases/latest/download/falcoclaw_linux_amd64.tar.gz | tar xz
+sudo ./falcoclaw server</div>
+        </div>
+        <div class="install-card">
+          <h3>Configuration</h3>
+          <p>Point Falco output to FalcoClaw intake.</p>
+          <div class="code"># /etc/falco/falco.yaml
+json_output: true
+json_include_output_property: true
+file_output:
+  enabled: true
+  keep_alive: true
+  filename: /var/run/falco/falco.sock</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Open source. Production ready.</h2>
+      <p>FalcoClaw is Apache 2.0 licensed. Contribute, audit, and deploy at your own pace - or lean on THNKBIG for enterprise support.</p>
+      <div class="cta-buttons">
+        <a href="https://github.com/thnkbig/falcoclaw" class="btn btn-github">View on GitHub</a>
+        <a href="https://github.com/thnkbig/falcoclaw/issues" class="btn" style="background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3)">Report an Issue</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>FalcoClaw is maintained by <a href="https://thnkbig.com" target="_blank" rel="noopener">THNKBIG Technologies</a>. Built on <a href="https://falco.org" target="_blank" rel="noopener">Falco</a>.</p>
+    </footer>
+  </body>
+</html>
