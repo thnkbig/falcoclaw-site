@@ -23,8 +23,9 @@ nav .links a:hover{color:#e6edf3;text-decoration:none}
 .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.1}
 .hero h1 span{color:#00bcd4}
 .hero p{font-size:clamp(1rem,2vw,1.2rem);color:#8b949e;max-width:540px;margin:0 auto 2.5rem}
-.hero-badges{display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-.badge{display:inline-flex;align-items:center;gap:0.4rem;background:#161b22;border:1px solid #30363d;border-radius:999px;padding:0.25rem 0.75rem;font-size:0.75rem;color:#8b949e}
+.hero-badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.badge{display:inline-flex;align-items:center;background:transparent;border:none;padding:0;border-radius:0}
+.badge img{height:20px;display:block}
 .badge img{height:12px}
 .install-cmd{background:#0a0a0a;border:1px solid #30363d;border-radius:8px;padding:0.85rem 1.5rem;font-family:'Courier New',monospace;font-size:0.9rem;color:#79c0ff;display:inline-block;text-align:left;max-width:560px;margin-bottom:2rem}
 .install-cmd span{color:#484f58}
@@ -60,3 +61,5 @@ footer a:hover{color:#e6edf3}
 .footer-links a{color:#8b949e;font-size:0.85rem}
 .footer-links a:hover{color:#e6edf3}
 .disclaimer{font-size:0.75rem;color:#484f58;margin-top:0.5rem}
+.thnkbig-link{color:var(--text-dim);font-size:0.8rem;font-weight:500}
+.thnkbig-link:hover{color:var(--accent)}
